@@ -17,6 +17,7 @@ class product {
   rating;
   priceCents;
 
+  //'this' let us an object access it's own properties
   constructor(productDetils){
     this.id=productDetils.id;
     this.image=productDetils.image;
@@ -48,7 +49,7 @@ class clothing extends product{
   extraInfoHTML(){
     return `
       <a href="${this.sizeChartLink}" target="_blank"> size chart</a>
-    `
+    `;
   }
 }
 
