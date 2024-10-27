@@ -30,7 +30,26 @@ class product {
   getPriceCentsUrl(){
     return`$${(this.priceCents/100).toFixed(2)}`;
   }
+  //method overriding
+  extraInfoHTML(){
+    return ''; 
+  }
 
+}
+//inheritance
+class clothing extends product{
+
+  sizeChartLink;
+  constructor(productDetils) {
+    super(productDetils);
+    this.sizeChartLink=productDetils.sizeChartLink;
+  }
+  
+  extraInfoHTML(){
+    return `
+      <a href="${this.sizeChartLink}" target="_blank"> size chart</a>
+    `
+  }
 }
 
 export const products = [
@@ -693,5 +712,8 @@ export const products = [
     ]
   }
 ].map((productDetils) => {
+  if(productDetils.type === 'clothing'){
+    return new clothing(productDetils);
+  }
   return new product (productDetils);
 });
