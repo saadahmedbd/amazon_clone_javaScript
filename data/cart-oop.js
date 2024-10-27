@@ -22,7 +22,7 @@ function Cart(localStorageKey){
         
         },
         saveToStroage(){
-            localStorage.setItem('cart',JSON.stringify(this.cartItems));
+            localStorage.setItem(localStorageKey,JSON.stringify(this.cartItems));
         },
     
         addToCart(productId){

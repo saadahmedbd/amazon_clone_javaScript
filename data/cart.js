@@ -1,12 +1,12 @@
 export let cart;
-loadFromStprage();
-export function loadFromStprage(){
+loadFromStorage();
+export function loadFromStorage(){
     cart=JSON.parse(localStorage.getItem('cart'));
 
     if(!cart){
         cart=[{
 
-
+//we put default product in cart 
             productId: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
         
             quentity:1,
@@ -19,12 +19,13 @@ export function loadFromStprage(){
     }
 
 }
-
+// cart product save in localStorage if we refrash our tab then do not remove product in cart
 function saveToStroage(){
     localStorage.setItem('cart',JSON.stringify(cart));
 }
 
 
+//product add in cart function
 export function addToCart(productId){
   
     let metchingItem;
@@ -44,6 +45,8 @@ export function addToCart(productId){
     }
     saveToStroage();
   }
+
+  // product delete in cart
   export function removeFromCart(productId){
     const newCart =[];
 
@@ -56,6 +59,8 @@ export function addToCart(productId){
     saveToStroage();
   }
 
+  // delivery date update function
+  //but unfortunatly it's not work delivery option undefind 
   export function updateDeliveryOption(productId, deliveryOptionId){
     let metchingItem;
     cart.forEach((cartItem) =>{
