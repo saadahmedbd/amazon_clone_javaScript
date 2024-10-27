@@ -43,7 +43,7 @@ cart.forEach((cartItem) =>{
                   ${metchingProduct.name}
                 </div>
                 <div class="product-price">
-                  $${(metchingProduct.priceCents /100).toFixed(2)}
+                  ${metchingProduct.getPriceCentsUrl()}
                 </div>
                 <div class="product-quantity">
                   <span>

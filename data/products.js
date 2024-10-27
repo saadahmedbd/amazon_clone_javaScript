@@ -9,6 +9,30 @@ export function getProduct(productId){
   return metchingProduct;
 }
 
+//product class
+class product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor(productDetils){
+    this.id=productDetils.id;
+    this.image=productDetils.image;
+    this.name=productDetils.name;
+    this.rating=productDetils.rating;
+    this.priceCents=productDetils.priceCents;
+  }
+  getStarsUrl(){
+    return `images/ratings/rating-${this.rating.stars *10}.png`;
+  }
+  getPriceCentsUrl(){
+    return`$${(this.priceCents/100).toFixed(2)}`;
+  }
+
+}
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -668,4 +692,6 @@ export const products = [
       "mens"
     ]
   }
-];
+].map((productDetils) => {
+  return new product (productDetils);
+});
